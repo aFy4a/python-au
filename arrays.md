@@ -33,8 +33,6 @@ if __name__ == "__main__":
 ```
 </blockquote></details>
 
-<details><summary>Code</summary><blockquote>
-    
 ```python
 def sortedSquares(self, nums):
     result = []
@@ -62,4 +60,3 @@ def sortedSquares(self, nums):
 
     return result
 ```
-</blockquote></details>
