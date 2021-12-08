@@ -1,6 +1,6 @@
 # Linked List
 
-+ [Palindrome Linked List](#Palindrome_Linked_List)
++ [Palindrome Linked List](#Palindrome-Linked-List)
 
 ## Palindrome Linked List
 
@@ -11,25 +11,45 @@ https://leetcode.com/problems/palindrome-linked-list/
 ```python
 import unittest
 from solution import Solution
+from solution import ListNode
 
 class TestReverseLinkedList(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
 
     def test_one_value(self):
-        self.assertEqual(self.solution.isPalindrome(self.solution.create_single_linked_list([1])), 1)
+        self.assertEqual(self.solution.isPalindrome(self.create_single_linked_list([1])), 1)
 
     def test_odd_amount_true(self):
-        self.assertEqual(self.solution.isPalindrome(self.solution.create_single_linked_list([1, 2, 3, 2, 1])), 1)
+        self.assertEqual(self.solution.isPalindrome(self.create_single_linked_list([1, 2, 3, 2, 1])), 1)
 
     def test_odd_amount_false(self):
-        self.assertEqual(self.solution.isPalindrome(self.solution.create_single_linked_list([1, 2, 3, 2, 2])), 0)
+        self.assertEqual(self.solution.isPalindrome(self.create_single_linked_list([1, 2, 3, 2, 2])), 0)
 
     def test_even_amount_true(self):
-        self.assertEqual(self.solution.isPalindrome(self.solution.create_single_linked_list([1, 2, 2, 1])), 1)
+        self.assertEqual(self.solution.isPalindrome(self.create_single_linked_list([1, 2, 2, 1])), 1)
 
     def test_even_amount_false(self):
-        self.assertEqual(self.solution.isPalindrome(self.solution.create_single_linked_list([1, 2, 2, 2])), 0)
+        self.assertEqual(self.solution.isPalindrome(self.create_single_linked_list([1, 2, 2, 2])), 0)
+
+    def create_single_linked_list(self, values):
+        if len(values) > 0:
+            previous_node = ListNode(values[len(values) - 1])
+            for i in range(0, len(values) - 1):
+                next_node = ListNode(values[len(values) - i - 2], previous_node)
+                previous_node = next_node
+            return previous_node
+        else:
+            return []
+
+    def get_linked_list_values(self, head):
+        result = []
+        if head != []:
+            cur = head
+            while cur != None:
+                result.append(cur.val)
+                cur = cur.next
+        return result
 ```
 </blockquote></details>
 
@@ -51,17 +71,8 @@ class Solution:
 
         check = 1
         for i in range(len(data) // 2):
-            if (data[i] != data[len(data) - 1 - i]):
+            if data[i] != data[len(data) - 1 - i]:
                 check = 0
                 break
         return check == 1
-
-    def create_single_linked_list(self, values):
-        if len(values) > 0:
-            previous_node = ListNode(values[len(values)-1])
-            for i in range(0, len(values) - 1):
-                next_node = ListNode(values[len(values) - i - 2], previous_node)
-                previous_node = next_node
-            return previous_node
-        else: return []
 ```
