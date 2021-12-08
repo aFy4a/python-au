@@ -1,6 +1,6 @@
 # Graph
 
-+ [Number of Islands](#Number_of_Islands)
++ [Number of Islands](#Number-of-Islands)
 
 ## Number of Islands
 
