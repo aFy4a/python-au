@@ -11,19 +11,39 @@ https://leetcode.com/problems/reverse-linked-list/
 ```python
 import unittest
 from solution import Solution
+from solution import ListNode
 
 class TestReverseLinkedList(unittest.TestCase):
     def setUp(self):
         self.solution = Solution()
 
+    def create_single_linked_list(self, values):
+        if len(values) > 0:
+            previous_node = ListNode(values[len(values) - 1])
+            for i in range(0, len(values) - 1):
+                next_node = ListNode(values[len(values) - i - 2], previous_node)
+                previous_node = next_node
+            return previous_node
+        else:
+            return []
+
+    def get_linked_list_values(self, head):
+        result = []
+        if head != []:
+            cur = head
+            while cur != None:
+                result.append(cur.val)
+                cur = cur.next
+        return result
+
     def test_empty_list(self):
         self.assertEqual(self.solution.reverseList([]), [])
 
     def test_one_value(self):
-        self.assertEqual(self.solution.get_linked_list_values(self.solution.reverseList(self.solution.create_single_linked_list([1]))), [1])
+        self.assertEqual(self.get_linked_list_values(self.solution.reverseList(self.create_single_linked_list([1]))), [1])
 
     def test_many_values(self):
-        self.assertEqual(self.solution.get_linked_list_values(self.solution.reverseList(self.solution.create_single_linked_list([1, 2, 3, 4, 5]))), [5, 4, 3, 2, 1])
+        self.assertEqual(self.get_linked_list_values(self.solution.reverseList(self.create_single_linked_list([1, 2, 3, 4, 5]))), [5, 4, 3, 2, 1])
 ```
 </blockquote></details>
 
@@ -47,23 +67,4 @@ class Solution:
                 head = to_check_next
             return reversed_head
         return[]
-
-    def create_single_linked_list(self, values):
-        if len(values) > 0:
-            previous_node = ListNode(values[len(values)-1])
-            for i in range(0, len(values) - 1):
-                next_node = ListNode(values[len(values) - i - 2], previous_node)
-                previous_node = next_node
-            return previous_node
-        else: return []
-
-
-    def get_linked_list_values(self, head):
-        result = []
-        if head != []:
-            cur = head
-            while cur != None:
-                result.append(cur.val)
-                cur = cur.next
-        return result
 ```
