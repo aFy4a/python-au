@@ -1,6 +1,6 @@
 # Linked List
 
-+ [Sort List](#Sort_List)
++ [Sort List](#Sort-List)
 
 ## Sort List
 
