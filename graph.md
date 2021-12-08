@@ -1,6 +1,6 @@
 # Graph
 
-+ [Course Schedule II](#Course_Schedule_II)
++ [Course Schedule II](#Course-Schedule-II)
 
 ## Course Schedule II
 
