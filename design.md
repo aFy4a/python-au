@@ -1,6 +1,6 @@
 # Design
 
-+ [Min Stack](#Min_Stack)
++ [Min Stack](#Min-Stack)
 
 ## Min Stack
 
