@@ -1,6 +1,6 @@
 # Linked List
 
-+ [Intersection of Two Linked Lists](#Intersection_of_Two_Linked_Lists)
++ [Intersection of Two Linked Lists](#Intersection-of-Two-Linked-Lists)
 
 ## Intersection of Two Linked Lists
 
